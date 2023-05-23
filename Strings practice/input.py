@@ -1,0 +1,6 @@
+name = input('What is your name?\n')
+# print(name)
+# print('Hi there, ' + name + '!')
+# print('Hi, %s.' % name)
+# print('Hi, {0}.'.format(name))
+print(f'Hello, {name}')
