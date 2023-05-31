@@ -1,38 +1,36 @@
 def addBinary(a, b):
-    longest = 0
-    shortest = 0
+    a = list(a)
+    b = list(b)
 
-    bit_sum = ''
-    if len(a) > len(b):
-        longest = len(a)
-        shortest = len(b)
-    else:
-        longest = len(b)
-        shortest = len(a)
+    while len(a) < len(b):
+        a.insert(0, '0')
 
-    i = -1
-    carryover = 0
+    while len(b) < len(a):
+        b.insert(0, '0')
 
-    while(i >= -shortest):
-        digit1 = int(a[i])
-        digit2 = int(b[i])
-        digit_sum = digit1 + digit2 + carryover
-        if digit_sum == 0:
-            bit_sum = '0' + bit_sum
-        elif digit_sum == 1:
-            bit_sum = '1' + bit_sum
+    carryover = '0'
+    binary_sum = ''
+
+    for i in range(len(a) - 1, -1, -1):
+        
+        if a[i] == '1' and b[i] == '1' and carryover == '1':
+            binary_sum = '1' + binary_sum
+        elif a[i] != '1' and b[i] != '1' and carryover != '1':
+            binary_sum = '0' + binary_sum
+            carryover = '0'
+        elif a[i] == '1' and b[i] == '1' or a[i] == '1' and carryover == '1' or b[i] == '1' and carryover == '1':
+            binary_sum = '0' + binary_sum
+            carryover = '1'
         else:
-            bit_sum = '0' + bit_sum
-            carryover = 1
-        i -= 1
-
-    return bit_sum
-    print('longest:', longest, 'shortest:', shortest)
-
-
-
+            binary_sum = '1' + binary_sum
+            carryover = '0'
+    
+    if carryover == '1':
+        binary_sum = '1' + binary_sum
+        
+    return binary_sum
 
 print(addBinary('11', '1'))
 
-# print(addBinary('1010', '1011'))
-# print(addBinary('0', '1011'))
+print(addBinary('1010', '1011'))
+print(addBinary('1', '1011'))
