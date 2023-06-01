@@ -1,5 +1,7 @@
 # Write your function, here.
-
+def big_words(tup):
+    # return tuple(filter(lambda word: len(word) > 8, tup))
+    return tuple([x for x in tup if len(x) > 8])
 
 
 print(big_words(('earth', 'jupiter', 'mars', 'neptune'))) #> ()
