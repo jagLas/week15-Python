@@ -1,6 +1,7 @@
 # Write your function, here.
 def bubble_sum(lst):
-    pass
+    lst.sort(key=lambda tup: sum(tup))
+    return lst
 
 
 print(bubble_sum([(3, 5), (1, 3), (6, 5), (2, 8)])) #> [(1, 3), (3, 5), (2, 8), (6, 5)]
