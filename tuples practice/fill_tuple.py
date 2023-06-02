@@ -1,6 +1,14 @@
 # Write your function, here.
-def fill_tuple(tup):
-    pass
+def fill_tuple(tuples, value, length):
+    lst = []
+
+    for tup in tuples:
+        tup_lst = list(tup)
+        while len(tup_lst) < length:
+            tup_lst.append(value)
+        lst.append(tuple(tup_lst))
+
+    return tuple(lst)
 
 
 print(fill_tuple(((58, 1, 5), (0, 3), (45, ), (24, 23)), 2, 3))    #> ((58, 1, 5), (0, 3, 2), (45, 2, 2), (24, 23, 2))
