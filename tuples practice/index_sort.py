@@ -2,6 +2,8 @@
 value of the second index in the tuple.'''
 
 # Write your function, here.
+def index_sort(lst):
+    return sorted(lst, key=lambda tuple: tuple[1])
 
 
 
