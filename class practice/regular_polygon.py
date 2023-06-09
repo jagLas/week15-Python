@@ -10,6 +10,24 @@
 
 
 # Write your class here.
+class RegularPolygon():
+    def __init__(self, sides = 3, length = 1) -> None:
+        if sides < 3:
+            raise Exception('A polygon must have at least 3 sides')
+        self._s = sides
+        self._l = length
+        self.type = 'Polygon'
+
+    def identify_polygon(self):
+        pass
+
+    @classmethod
+    def polygon_factory(cls):
+        pass
+
+    @staticmethod
+    def get_permiter(polygon):
+        pass
 
 
 pentagon = RegularPolygon(5, 5)
