@@ -28,8 +28,29 @@ class Tree:
                     current = current.right
             else:
                 return 'insertion failed'
-            
-        
+    
+    def preorder_traversal(self, root):
+        stack = [root]
+        while stack:
+            node = stack.pop()
+            if node == None: continue
+            print(node.val)
+            stack.append(node.left)
+            stack.append(node.right)
+
+    def inorder_traversal(self, node):
+        if node.left != None:
+            self.inorder_traversal(node.left)
+        print(node.val)
+        if node.right != None:
+            self.inorder_traversal(node.right)
+
+    def postorder_traversal(self, node):
+        if node.right != None:
+            self.postorder_traversal(node.right)
+        if node.left != None:
+            self.postorder_traversal(node.left)
+        print(node.val)
 
 
 tree = Tree()
