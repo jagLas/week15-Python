@@ -22,6 +22,12 @@ from office.work import (
   updateSchedule
 )
 
+from office.idle import (
+  getWater,
+  useSocialMedia,
+  chat
+)
+
 def morningMenu():
   print("Starting the day off...")
   while True:
