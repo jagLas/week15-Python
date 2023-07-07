@@ -1,17 +1,23 @@
 def parse(numeral):
-    if numeral == 'I':
-        return 1
-    elif numeral == 'II':
-        return 2
-    elif numeral == 'III':
-        return 3
-    elif numeral == 'IV':
-        return 4
-    elif numeral == 'V':
-        return 5
-    elif numeral == 'VI':
-        return 6
-    elif numeral == 'VII':
-        return 7
-    elif numeral == 'VIII':
-        return 8
+    numeralDict = {
+        'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000
+    }
+    count = 0
+
+    # for every digit except the last
+    for index in range(len(numeral) - 1):
+        digit = numeral[index]
+        digit_value = numeralDict[digit]
+        next_digit = numeral[index + 1]
+        next_value = numeralDict[next_digit]
+
+        # check if the next digit is bigger than current numeral to decided to add or subtract
+        if digit_value < next_value:
+            count -= digit_value
+        else:
+            count += digit_value
+
+    # add the last roman numeral
+    count += numeralDict[numeral[-1]]
+    
+    return count
